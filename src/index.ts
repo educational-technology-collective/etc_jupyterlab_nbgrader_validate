@@ -31,8 +31,8 @@ export const IValidateButtonExtension = new Token<IValidateButtonExtension>(PLUG
 
 export interface IValidateButtonExtension {
   validateButtonClicked: ISignal<ValidateButtonExtension, any>;
-  validateResultsDisplayed: ISignal<ValidateButtonExtension, any>;
-  dismissed: ISignal<ValidateButtonExtension, any>;
+  validationResultsDisplayed: ISignal<ValidateButtonExtension, any>;
+  validationResultsDismissed: ISignal<ValidateButtonExtension, any>;
 }
 
 /**
@@ -53,8 +53,8 @@ export class ValidateButtonExtension
   implements DocumentRegistry.IWidgetExtension<NotebookPanel, INotebookModel>, IValidateButtonExtension {
 
   private _validateButtonClicked: Signal<ValidateButtonExtension, any> = new Signal(this);
-  private _validateResultsDisplayed: Signal<ValidateButtonExtension, any> = new Signal(this);
-  private _dismissed: Signal<ValidateButtonExtension, any> = new Signal(this);
+  private _validationResultsDisplayed: Signal<ValidateButtonExtension, any> = new Signal(this);
+  private _validationResultsDismissed: Signal<ValidateButtonExtension, any> = new Signal(this);
 
   /**
    * Create a new extension for the notebook panel widget.
@@ -103,8 +103,8 @@ export class ValidateButtonExtension
         pre.innerText = reply.output;
         body.appendChild(pre);
 
-        this._validateResultsDisplayed.emit({
-          event_name: 'dismissed',
+        this._validationResultsDisplayed.emit({
+          event_name: 'validate_results_displayed',
           notebook_panel: panel,
           message: reply.output
         });
@@ -117,8 +117,8 @@ export class ValidateButtonExtension
           buttons: [Dialog.okButton()],
         });
 
-        this._dismissed.emit({
-          event_name: 'dismissed',
+        this._validationResultsDismissed.emit({
+          event_name: 'validate_results_dismissed',
           notebook_panel: panel,
           message: result
         });
@@ -129,7 +129,6 @@ export class ValidateButtonExtension
         console.error(e);
       }
     };
-
 
     const validateButton = new ToolbarButton({
       className: 'validate-button',
@@ -148,12 +147,12 @@ export class ValidateButtonExtension
     return this._validateButtonClicked
   }
 
-  get validateResultsDisplayed(): ISignal<ValidateButtonExtension, any> {
-    return this._validateResultsDisplayed
+  get validationResultsDisplayed(): ISignal<ValidateButtonExtension, any> {
+    return this._validationResultsDisplayed
   }
 
-  get dismissed(): ISignal<ValidateButtonExtension, any> {
-    return this._dismissed
+  get validationResultsDismissed(): ISignal<ValidateButtonExtension, any> {
+    return this._validationResultsDismissed
   }
 }
 
