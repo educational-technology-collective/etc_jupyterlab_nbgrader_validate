@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "@educational-technology-collective/etc_jupyterlab_nbgrader_validate",
+  "description": "@educational-technology-collective/etc_jupyterlab_nbgrader_validate settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
