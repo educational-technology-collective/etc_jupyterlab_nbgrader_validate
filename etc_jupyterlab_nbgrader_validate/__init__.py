@@ -1,4 +1,3 @@
-
 import json
 from pathlib import Path
 
@@ -26,6 +25,7 @@ def _jupyter_server_extension_points():
     }]
 
 
+
 def _load_jupyter_server_extension(server_app):
     """Registers the API handler to receive HTTP requests from the frontend extension.
 
@@ -35,8 +35,7 @@ def _load_jupyter_server_extension(server_app):
         JupyterLab application instance
     """
     setup_handlers(server_app.web_app)
-    server_app.log.info("Registered HelloWorld extension at URL path /etc-jupyterlab-nbgrader-validate")
+    server_app.log.info("Registered JLab NBgrader validate extension at URL path /jupyterlab-nbgrader-validate")
 
 # For backward compatibility with notebook server - useful for Binder/JupyterHub
 load_jupyter_server_extension = _load_jupyter_server_extension
-
