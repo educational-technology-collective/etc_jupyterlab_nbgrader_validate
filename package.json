@@ -1,6 +1,6 @@
 {
   "name": "@educational-technology-collective/etc_jupyterlab_nbgrader_validate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A JupyterLab extension.",
   "keywords": [
     "jupyter",
