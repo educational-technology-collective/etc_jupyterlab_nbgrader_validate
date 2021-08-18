@@ -1,5 +1,10 @@
 import { IDisposable, DisposableDelegate } from '@lumino/disposable';
+
 import { Widget } from '@lumino/widgets';
+
+import { Token } from '@lumino/coreutils';
+
+import { ISignal, Signal } from '@lumino/signaling';
 
 import {
   JupyterFrontEnd,
@@ -18,10 +23,6 @@ import {
   NotebookPanel,
   INotebookModel
 } from '@jupyterlab/notebook';
-
-import { Token } from '@lumino/coreutils';
-
-import { ISignal, Signal } from '@lumino/signaling';
 
 import { requestAPI } from './handler';
 
@@ -68,7 +69,7 @@ export class ValidateButtonExtension
       try {
 
         this._validateButtonClicked.emit({
-          event_name: 'validate_button_clicked',
+          name: 'validate_button_clicked',
           notebook_panel: panel
         });
         //  Emit a Signal when the validate button is clicked; 
@@ -104,7 +105,7 @@ export class ValidateButtonExtension
         body.appendChild(pre);
 
         this._validationResultsDisplayed.emit({
-          event_name: 'validate_results_displayed',
+          name: 'validation_results_displayed',
           notebook_panel: panel,
           message: reply.output
         });
@@ -118,7 +119,7 @@ export class ValidateButtonExtension
         });
 
         this._validationResultsDismissed.emit({
-          event_name: 'validate_results_dismissed',
+          name: 'validation_results_dismissed',
           notebook_panel: panel,
           message: result
         });
