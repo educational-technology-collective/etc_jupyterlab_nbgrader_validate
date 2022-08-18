@@ -30,6 +30,7 @@ class RouteHandler(APIHandler):
         data = {"output": "{}".format(output)}
         self.finish(json.dumps(data))
 
+
 def setup_handlers(web_app):
     host_pattern = ".*$"
 
