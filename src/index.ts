@@ -73,7 +73,7 @@ export class ValidateButtonExtension
         //  Emit a Signal when the validate button is clicked;
         //  hence, emit a Signal at the start of the handler.
 
-        let validateButton =
+        const validateButton =
           document.getElementsByClassName('validate-button')[0];
         validateButton.firstElementChild.textContent = 'Validating...';
 
@@ -97,8 +97,8 @@ export class ValidateButtonExtension
           validateButton.firstElementChild.textContent = 'Validate';
         }
 
-        let body = document.createElement('div');
-        let pre = document.createElement('pre');
+        const body = document.createElement('div');
+        const pre = document.createElement('pre');
         pre.innerText = reply.output;
         body.appendChild(pre);
 
@@ -110,7 +110,7 @@ export class ValidateButtonExtension
         //  Emit a Signal when the Validation Results are displayed;
         //  hence, emit a Signal just prior to displaying the results.
 
-        let result = await showDialog({
+        const result = await showDialog({
           title: 'Validation Results',
           body: new Widget({ node: body }),
           buttons: [Dialog.okButton()]
