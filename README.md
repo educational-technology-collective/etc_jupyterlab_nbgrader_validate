@@ -4,15 +4,13 @@
 
 A JupyterLab extension.
 
-
 This extension is composed of a Python package named `etc_jupyterlab_nbgrader_validate`
 for the server extension and a NPM package named `@educational-technology-collective/etc_jupyterlab_nbgrader_validate`
 for the frontend extension.
 
-
 ## Requirements
 
-* JupyterLab >= 3.0
+- JupyterLab >= 3.0
 
 ## Install
 
@@ -30,7 +28,6 @@ To remove the extension, execute:
 pip uninstall etc_jupyterlab_nbgrader_validate
 ```
 
-
 ## Troubleshoot
 
 If you are seeing the frontend extension, but it is not working, check
@@ -46,7 +43,6 @@ the frontend extension, check the frontend extension is installed:
 ```bash
 jupyter labextension list
 ```
-
 
 ## Contributing
 

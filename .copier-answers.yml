@@ -11,4 +11,3 @@ project_short_description: A JupyterLab extension.
 python_name: etc_jupyterlab_nbgrader_validate
 repository: https://github.com/educational-technology-collective/etc_jupyterlab_nbgrader_validate.git
 test: false
-
