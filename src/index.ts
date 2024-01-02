@@ -76,7 +76,7 @@ export class ValidateButtonExtension
         //  hence, emit a Signal at the start of the handler.
 
         let validateButton = document.getElementsByClassName('validate-button')[0];
-        validateButton.children[0].children[0].innerHTML = "Validating...";
+        validateButton.firstElementChild.textContent = "Validating...";
 
         // POST request
         const notebookPath = panel.context.path;
@@ -96,7 +96,7 @@ export class ValidateButtonExtension
           );
         }
         finally {
-          validateButton.children[0].children[0].innerHTML = "Validate";
+          validateButton.firstElementChild.textContent = "Validate";
         }
 
         let body = document.createElement('div');
