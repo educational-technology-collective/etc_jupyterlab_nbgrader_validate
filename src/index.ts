@@ -11,24 +11,20 @@ import {
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
-import {
-  showDialog,
-  Dialog,
-  ToolbarButton
-} from '@jupyterlab/apputils';
+import { showDialog, Dialog, ToolbarButton } from '@jupyterlab/apputils';
 
 import { DocumentRegistry } from '@jupyterlab/docregistry';
 
-import {
-  NotebookPanel,
-  INotebookModel
-} from '@jupyterlab/notebook';
+import { NotebookPanel, INotebookModel } from '@jupyterlab/notebook';
 
 import { requestAPI } from './handler';
 
-const PLUGIN_ID = '@educational-technology-collective/etc_jupyterlab_nbgrader_validate:plugin';
+const PLUGIN_ID =
+  '@educational-technology-collective/etc_jupyterlab_nbgrader_validate:plugin';
 
-export const IValidateButtonExtension = new Token<IValidateButtonExtension>(PLUGIN_ID);
+export const IValidateButtonExtension = new Token<IValidateButtonExtension>(
+  PLUGIN_ID
+);
 
 export interface IValidateButtonExtension {
   validateButtonClicked: ISignal<ValidateButtonExtension, any>;
@@ -46,16 +42,20 @@ const plugin: JupyterFrontEndPlugin<IValidateButtonExtension> = {
   activate
 };
 
-
 /**
  * A notebook widget extension that adds a button to the toolbar.
  */
 export class ValidateButtonExtension
-  implements DocumentRegistry.IWidgetExtension<NotebookPanel, INotebookModel>, IValidateButtonExtension {
-
-  private _validateButtonClicked: Signal<ValidateButtonExtension, any> = new Signal(this);
-  private _validationResultsDisplayed: Signal<ValidateButtonExtension, any> = new Signal(this);
-  private _validationResultsDismissed: Signal<ValidateButtonExtension, any> = new Signal(this);
+  implements
+    DocumentRegistry.IWidgetExtension<NotebookPanel, INotebookModel>,
+    IValidateButtonExtension
+{
+  private _validateButtonClicked: Signal<ValidateButtonExtension, any> =
+    new Signal(this);
+  private _validationResultsDisplayed: Signal<ValidateButtonExtension, any> =
+    new Signal(this);
+  private _validationResultsDismissed: Signal<ValidateButtonExtension, any> =
+    new Signal(this);
 
   /**
    * Create a new extension for the notebook panel widget.
@@ -65,18 +65,17 @@ export class ValidateButtonExtension
     context: DocumentRegistry.IContext<INotebookModel>
   ): IDisposable {
     const validate = async () => {
-
       try {
-
         this._validateButtonClicked.emit({
           name: 'validate_button_clicked',
           notebook_panel: panel
         });
-        //  Emit a Signal when the validate button is clicked; 
+        //  Emit a Signal when the validate button is clicked;
         //  hence, emit a Signal at the start of the handler.
 
-        let validateButton = document.getElementsByClassName('validate-button')[0];
-        validateButton.children[0].children[0].innerHTML = "Validating...";
+        const validateButton =
+          document.getElementsByClassName('validate-button')[0];
+        validateButton.firstElementChild.textContent = 'Validating...';
 
         // POST request
         const notebookPath = panel.context.path;
@@ -94,13 +93,12 @@ export class ValidateButtonExtension
           throw new Error(
             `Error on POST /jupyterlab-nbgrader-validate/validate ${dataToSend}.\n${reason}`
           );
-        }
-        finally {
-          validateButton.children[0].children[0].innerHTML = "Validate";
+        } finally {
+          validateButton.firstElementChild.textContent = 'Validate';
         }
 
-        let body = document.createElement('div');
-        let pre = document.createElement('pre');
+        const body = document.createElement('div');
+        const pre = document.createElement('pre');
         pre.innerText = reply.output;
         body.appendChild(pre);
 
@@ -109,13 +107,13 @@ export class ValidateButtonExtension
           notebook_panel: panel,
           message: reply.output
         });
-        //  Emit a Signal when the Validation Results are displayed; 
+        //  Emit a Signal when the Validation Results are displayed;
         //  hence, emit a Signal just prior to displaying the results.
 
-        let result = await showDialog({
+        const result = await showDialog({
           title: 'Validation Results',
           body: new Widget({ node: body }),
-          buttons: [Dialog.okButton()],
+          buttons: [Dialog.okButton()]
         });
 
         this._validationResultsDismissed.emit({
@@ -125,8 +123,7 @@ export class ValidateButtonExtension
         });
         //  Emit a Signal once the dialog has been dismissed (either accepted or declined);
         //  hence, emit a Signal with the result message.
-      }
-      catch (e) {
+      } catch (e) {
         console.error(e);
       }
     };
@@ -145,15 +142,15 @@ export class ValidateButtonExtension
   }
 
   get validateButtonClicked(): ISignal<ValidateButtonExtension, any> {
-    return this._validateButtonClicked
+    return this._validateButtonClicked;
   }
 
   get validationResultsDisplayed(): ISignal<ValidateButtonExtension, any> {
-    return this._validationResultsDisplayed
+    return this._validationResultsDisplayed;
   }
 
   get validationResultsDismissed(): ISignal<ValidateButtonExtension, any> {
-    return this._validationResultsDismissed
+    return this._validationResultsDismissed;
   }
 }
 
@@ -161,7 +158,6 @@ export class ValidateButtonExtension
  * Activate the extension.
  */
 function activate(app: JupyterFrontEnd): IValidateButtonExtension {
-
   const validateButtonExtension = new ValidateButtonExtension();
 
   app.docRegistry.addWidgetExtension('Notebook', validateButtonExtension);
