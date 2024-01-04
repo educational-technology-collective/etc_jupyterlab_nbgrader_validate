@@ -106,7 +106,14 @@
         },
         "extension": true,
         "outputDir": "etc_jupyterlab_nbgrader_validate/labextension",
-        "schemaDir": "schema"
+        "schemaDir": "schema",
+        "sharedPackages": {
+            "jupyterlab-pioneer": {
+                "bundled": false,
+                "singleton": true,
+                "strictVersion": true
+            }
+        }
     },
     "jupyter-releaser": {
         "hooks": {
