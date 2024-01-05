@@ -42,10 +42,10 @@ export class ValidateButtonExtension
   ): IDisposable {
     const validate = async () => {
       await panel.revealed;
-      const exporters = panel.content.model.getMetadata('exporters') as any;
+      await this.pioneer.loadExporters(panel);
 
       try {
-        exporters?.forEach(async (exporter: any) => {
+        this.pioneer.exporters?.forEach(async (exporter: any) => {
           await this.pioneer.publishEvent(
             panel,
             {
@@ -86,7 +86,7 @@ export class ValidateButtonExtension
         pre.innerText = reply.output;
         body.appendChild(pre);
 
-        exporters?.forEach(async (exporter: any) => {
+        this.pioneer.exporters?.forEach(async (exporter: any) => {
           await this.pioneer.publishEvent(
             panel,
             {
@@ -107,7 +107,7 @@ export class ValidateButtonExtension
           buttons: [Dialog.okButton()]
         });
 
-        exporters?.forEach(async (exporter: any) => {
+        this.pioneer.exporters?.forEach(async (exporter: any) => {
           await this.pioneer.publishEvent(
             panel,
             {

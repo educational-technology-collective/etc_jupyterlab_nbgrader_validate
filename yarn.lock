@@ -356,7 +356,7 @@ __metadata:
     eslint: ^8.36.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-prettier: ^5.0.0
-    jupyterlab-pioneer: ^0.2.0
+    jupyterlab-pioneer: ^1.2.0
     mkdirp: ^1.0.3
     npm-run-all: ^4.1.5
     prettier: ^3.0.0
@@ -3920,9 +3920,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyterlab-pioneer@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "jupyterlab-pioneer@npm:0.2.0"
+"jupyterlab-pioneer@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "jupyterlab-pioneer@npm:1.2.0"
   dependencies:
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/apputils": ^4.1.9
@@ -3930,7 +3930,7 @@ __metadata:
     "@jupyterlab/mainmenu": ^4.0.9
     "@jupyterlab/notebook": ^4.0.5
     "@jupyterlab/services": ^7.0.0
-  checksum: 99cb70f0394b4350babb9b7cc3540f33490219f74d86861d69dc903c1181a5a1746f13dd21fed002eb74a7a075120ffe40b7623cae9eba37e793c9cdb4f41138
+  checksum: 0cfbeb70f8c1edd1166b4eace6409152ec1bb951836a773d626dbcd7689ed0e75a753132d7e8a64663f0bf49c14e9f3fc0d09824fbeb21776c320780f495bb2f
   languageName: node
   linkType: hard
 
