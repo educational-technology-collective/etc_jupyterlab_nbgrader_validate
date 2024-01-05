@@ -342,11 +342,16 @@ __metadata:
   resolution: "@educational-technology-collective/etc_jupyterlab_nbgrader_validate@workspace:."
   dependencies:
     "@jupyterlab/application": ^4.0.10
+    "@jupyterlab/apputils": ^4.0.10
     "@jupyterlab/builder": ^4.0.0
     "@jupyterlab/coreutils": ^6.0.10
+    "@jupyterlab/docregistry": 4.0.10
     "@jupyterlab/notebook": ^4.0.10
     "@jupyterlab/services": ^7.0.10
     "@jupyterlab/settingregistry": ^4.0.10
+    "@lumino/coreutils": ^2.0.0
+    "@lumino/disposable": ^2.0.0
+    "@lumino/widgets": ^2.0.0
     "@types/json-schema": ^7.0.11
     "@types/react": ^18.0.26
     "@types/react-addons-linked-state-mixin": ^0.14.22
@@ -555,7 +560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/apputils@npm:^4.1.10, @jupyterlab/apputils@npm:^4.1.9":
+"@jupyterlab/apputils@npm:^4.0.10, @jupyterlab/apputils@npm:^4.1.10, @jupyterlab/apputils@npm:^4.1.9":
   version: 4.1.10
   resolution: "@jupyterlab/apputils@npm:4.1.10"
   dependencies:
@@ -777,7 +782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/docregistry@npm:^4.0.10":
+"@jupyterlab/docregistry@npm:4.0.10, @jupyterlab/docregistry@npm:^4.0.10":
   version: 4.0.10
   resolution: "@jupyterlab/docregistry@npm:4.0.10"
   dependencies:
@@ -1322,14 +1327,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lumino/coreutils@npm:^1.11.0 || ^2.0.0, @lumino/coreutils@npm:^1.11.0 || ^2.1.2, @lumino/coreutils@npm:^2.1.2":
+"@lumino/coreutils@npm:^1.11.0 || ^2.0.0, @lumino/coreutils@npm:^1.11.0 || ^2.1.2, @lumino/coreutils@npm:^2.0.0, @lumino/coreutils@npm:^2.1.2":
   version: 2.1.2
   resolution: "@lumino/coreutils@npm:2.1.2"
   checksum: 7865317ac0676b448d108eb57ab5d8b2a17c101995c0f7a7106662d9fe6c859570104525f83ee3cda12ae2e326803372206d6f4c1f415a5b59e4158a7b81066f
   languageName: node
   linkType: hard
 
-"@lumino/disposable@npm:^1.10.0 || ^2.0.0, @lumino/disposable@npm:^2.1.2":
+"@lumino/disposable@npm:^1.10.0 || ^2.0.0, @lumino/disposable@npm:^2.0.0, @lumino/disposable@npm:^2.1.2":
   version: 2.1.2
   resolution: "@lumino/disposable@npm:2.1.2"
   dependencies:
@@ -1409,7 +1414,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lumino/widgets@npm:^1.37.2 || ^2.3.0, @lumino/widgets@npm:^2.3.0, @lumino/widgets@npm:^2.3.1":
+"@lumino/widgets@npm:^1.37.2 || ^2.3.0, @lumino/widgets@npm:^2.0.0, @lumino/widgets@npm:^2.3.0, @lumino/widgets@npm:^2.3.1":
   version: 2.3.1
   resolution: "@lumino/widgets@npm:2.3.1"
   dependencies:

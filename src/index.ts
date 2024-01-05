@@ -86,6 +86,7 @@ export class ValidateButtonExtension
         pre.innerText = reply.output;
         body.appendChild(pre);
 
+        
         this.pioneer.exporters?.forEach(async (exporter: any) => {
           await this.pioneer.publishEvent(
             panel,
