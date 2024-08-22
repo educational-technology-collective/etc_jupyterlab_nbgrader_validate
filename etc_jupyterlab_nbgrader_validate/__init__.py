@@ -5,7 +5,7 @@ from ._version import __version__
 import subprocess
 
 # Disable nbgrader validate extension
-subprocess.run(["jupyter", "labextension", "disable", "nbgrader:validate-assignment"], capture_output=True)
+subprocess.run(["jupyter", "labextension", "lock", "nbgrader:validate-assignment"], capture_output=True)
 
 HERE = Path(__file__).parent.resolve()
 
